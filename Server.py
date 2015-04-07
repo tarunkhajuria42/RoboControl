@@ -9,7 +9,6 @@ class service(SocketServer.BaseRequestHandler):
         while True:
             data = self.request.recv(1024)
             print(data)
-
         print "Client exited"
         self.request.close()
 		
