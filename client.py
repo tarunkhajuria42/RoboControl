@@ -53,13 +53,6 @@ while True:
 		a.append(chr(12))
 	else:
 		a.append(chr(13))
-	# Axis Output for Left axis Up/Dowm
-	if(joystick[0].get_axis(3)<0.4): 
-		a.append(chr(11))
-	elif(joystick[0].get_axis(3)>0.4):
-		a.append(chr(12))
-	else:
-		a.append(chr(13))
 	# Axis Output for Left axis Left/Right
 	if(joystick[0].get_axis(4)<0.4): 
 		a.append(chr(8))
@@ -187,5 +180,6 @@ while True:
 	else:
 		a.append(chr(57))
 	s.send("".join(a))
-	time.sleep(0.01)
+	print(a)
+	time.sleep(5)
 s.close()  

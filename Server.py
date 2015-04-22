@@ -8,7 +8,8 @@ class service(SocketServer.BaseRequestHandler):
         print "Client connected with ", self.client_address
         while True:
             data = self.request.recv(1024)
-            print(data)
+            for ch in data:
+                print(ch+"\n")
         print "Client exited"
         self.request.close()
 		
