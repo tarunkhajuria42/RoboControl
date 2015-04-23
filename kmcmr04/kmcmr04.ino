@@ -127,7 +127,7 @@ void loop()
    else if(a>156 && a<255)
    {
      sig=a-156
-     sig=round(sig*255/(254-156));
+     sig=round(sig*255/(254-156));  
      //analogWrite(PinNO,sig) write your pinno here for back signal
      //Make the opposite one low
    }

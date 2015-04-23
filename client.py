@@ -13,9 +13,9 @@ for no in range(0,get_count()):
 screen = pygame.display.set_mode((400,300))
 pygame.display.set_caption('Hello World')
 s = socket.socket()         # Create a socket object
-host = socket.gethostname() # Get local machine name
+host = socket.gethostbyaddr("192.16") # Get local machine name
 port = 1520                # Reserve a port for your service.
-s.connect((host, port))
+s.connect((host[0], port))
 # Send to server
 while True:
 	for event in pygame.event.get():
@@ -181,5 +181,5 @@ while True:
 		a.append(chr(57))
 	s.send("".join(a))
 	print(a)
-	time.sleep(5)
+	time.sleep(0.1)
 s.close()  
