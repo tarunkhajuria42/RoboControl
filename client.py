@@ -13,7 +13,8 @@ for no in range(0,get_count()):
 screen = pygame.display.set_mode((400,300))
 pygame.display.set_caption('Hello World')
 s = socket.socket()         # Create a socket object
-host = socket.gethostbyaddr("192.16") # Get local machine name
+host = socket.gethostbyaddr("192.168.1.101") # Get local machine name
+print host
 port = 1520                # Reserve a port for your service.
 s.connect((host[0], port))
 # Send to server
