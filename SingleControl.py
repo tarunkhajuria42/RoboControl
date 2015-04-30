@@ -3,6 +3,7 @@ import socket               # Import socket module
 from pygame.joystick import *
 import pygame
 import math
+import serial
 import time
 # Initializing joystick systems
 init()
@@ -10,14 +11,12 @@ joystick=[]
 for no in range(0,get_count()):		
 	joystick.append(Joystick(no)) # Find all Joysticks and initialize them
 	joystick[no].init()
-screen = pygame.display.set_mode((400,300))
+screen = pygame.display.set_mode((10,10))
 pygame.display.set_caption('Hello World')
-s = socket.socket()         # Create a socket object
-host = socket.gethostbyaddr("10.0.0.4") # Get local machine name
-print host
-port = 1520                # Reserve a port for your service.
-s.connect((host[0], port))
-# Send to server
+# Initialising Serial 
+s=serial.Serial(port='COM74', baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=1)
+s.close()
+s.open()
 while True:
 	for event in pygame.event.get():
 		nothing=0
@@ -180,7 +179,7 @@ while True:
 		a.append(chr(51))
 	else:
 		a.append(chr(57))
-	s.send("".join(a))
+	s.write("".join(a))
 	print(a)
 	time.sleep(0.1)
 s.close()  
