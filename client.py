@@ -42,31 +42,28 @@ while True:
 	# PWM Output for Axis
 	raw=joystick[0].get_axis(1)
 	if(raw<0):
-		sig=raw*-98;
+		sig=raw*-48.99;
 		sig=math.floor(sig)+58;
 		a.append(chr(int(sig)))
 	else:
-		sig=raw*98;
-		sig=math.floor(sig)+157;
+		sig=raw*49;
+		sig=math.floor(sig)+107;
 		a.append(chr(int(sig)))
 	# Axis Output for Left axis Up/Down
-	if(joystick[0].get_axis(3)<0.4): 
-		a.append(chr(11))
-	elif(joystick[0].get_axis(3)>0.4):
-		a.append(chr(12))
+	#Change to pwm 
+	raw=joystick[0].get_axis(3)
+	if(raw<0):
+		sig=raw*-48.99;
+		sig=math.floor(sig)+157;
+		a.append(chr(int(sig)))
 	else:
-		a.append(chr(13))
-	# Axis Output for Left axis Left/Right
-	if(joystick[0].get_axis(4)<0.4): 
-		a.append(chr(8))
-	elif(joystick[0].get_axis(4)>0.4):
-		a.append(chr(9))
-	else:
-		a.append(chr(10))
+		sig=raw*49;
+		sig=math.floor(sig)+206;
+		a.append(chr(int(sig)))
 	# Axis Output for Left trigger and right trigger
-	if(joystick[0].get_axis(2)<0.4): 
+	if(joystick[0].get_axis(2)>0.4): 
 		a.append(chr(5))
-	elif(joystick[0].get_axis(2)>0.4):
+	elif(joystick[0].get_axis(2)<-0.4):
 		a.append(chr(6))
 	else:
 		a.append(chr(7))
@@ -124,30 +121,30 @@ while True:
 	else:
 		a.append(chr(33))
 	# Axis Output for Left axis Up/Down
-	if(joystick[1].get_axis(1)<0.4): 
+	if(joystick[1].get_axis(1)<-0.4): 
 		a.append(chr(34))
 	elif(joystick[1].get_axis(1)>0.4):
 		a.append(chr(35))
 	else:
 		a.append(chr(36))
 	# Axis Output for Right axis Up/Dowm
-	if(joystick[1].get_axis(3)<0.4): 
+	if(joystick[1].get_axis(3)<-0.4): 
 		a.append(chr(43))
 	elif(joystick[1].get_axis(3)>0.4):
 		a.append(chr(44))
 	else:
 		a.append(chr(45))
 	# Axis Output for Right axis Left/Right
-	if(joystick[1].get_axis(4)<0.4): 
+	if(joystick[1].get_axis(4)<-0.4): 
 		a.append(chr(40))
 	elif(joystick[1].get_axis(4)>0.4):
 		a.append(chr(41))
 	else:
 		a.append(chr(42))
 	# Axis Output for Left trigger and right trigger
-	if(joystick[1].get_axis(2)<0.4): 
+	if(joystick[1].get_axis(2)>0.4): 
 		a.append(chr(37))
-	elif(joystick[1].get_axis(2)>0.4):
+	elif(joystick[1].get_axis(2)<-0.4):
 		a.append(chr(38))
 	else:
 		a.append(chr(39))

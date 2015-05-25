@@ -1,4 +1,5 @@
-# Readme.txt
+#
+ Readme.txt
 @Description
 Sending controller state form two xbox 360 controllers over tcp/ip to Server connected to a microcontroller
 
@@ -15,22 +16,18 @@ Controller 1 Controls
 		4: Hat Right
 	Axis 0: No output
 	Axis 1: Up and Dowm( Pwm output required)
-		Up: 58 to 155
-		Down:157 to 254
+		Up: 58 to 107
+		Dowm: 108 to 156
+		
 	Trigger
 	Axis 2: + Left  - Right
 		5: Left
 		6: Right
 		7: Nothing
-	Left axis
-	Axis 4: Left and right
-		8: Left
-		9: Right
-		10: Nothing
+	Left axis : Changed to pwm
 	Axis 3: up and down
-		11: Up
-		12: Down
-		13 Nothing
+		UP:157 to 206
+		Down:207 to 255
 	Buttons
 	Numpy Button Numbers
 	Button A:0
@@ -65,7 +62,7 @@ Second Controller
 		31: Left
 		32: Right
 		33: Nothing
-	Axis 1: Up and Dowm( Pwm output required)
+	Axis 1: Up and Dowm
 		34: Up
 		35: Down
 		36: Nothing
